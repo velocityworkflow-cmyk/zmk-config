@@ -56,7 +56,7 @@
             low-power-enable;
         };
     };
-           }
+           };
 
 
     &spi1 {
