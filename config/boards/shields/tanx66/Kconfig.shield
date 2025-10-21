@@ -1,4 +1,2 @@
-# tanx66 shield definition
 config SHIELD_TANX66
-    bool "tanx66"
-    default y if SHIELD_TANX66
+    def_bool y
