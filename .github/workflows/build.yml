@@ -1,49 +1,10 @@
-name: ZMK Build
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+name: Build ZMK firmware
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      # 1. Checkout your repo
-      - uses: actions/checkout@v3
-
-      # 2. Install prerequisites
-      - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y git cmake ninja-build python3-pip python3-setuptools python3-wheel
-
-      # 3. Clone ZMK main branch
-      - name: Clone ZMK main
-        run: |
-          git clone --branch main https://github.com/zmkfirmware/zmk.git zmk
-
-      # 4. Initialize West workspace
-      - name: Initialize West
-        working-directory: zmk
-        run: |
-          west init -l .
-          west update
-
-      # 5. Build firmware
-      - name: Build firmware
-        working-directory: zmk
-        run: |
-          west build -s app -d build/tanx66 -b nice_nano_v2 \
-            -- -DZMK_CONFIG=${{ github.workspace }}/config \
-               -DSHIELD=tanx66 \
-               -DZMK_EXTRA_MODULES=${{ github.workspace }}/config
-
-      # 6. Upload firmware as artifact
-      - name: Upload firmware
-        uses: actions/upload-artifact@v3
-        with:
-          name: tanx66-firmware
-          path: zmk/build/tanx66/zephyr/zmk.uf2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    with:
+      BOARD: nice_nano_v2
+      SHIELD: tanx66
+      EXTRA_MODULES: config
