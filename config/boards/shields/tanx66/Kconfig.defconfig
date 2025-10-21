@@ -1,6 +1,6 @@
 if SHIELD_TANX66
 
-    config ZMK KEYBOARD_NAME
+    config ZMK_KEYBOARD_NAME
       default "tanx65"    
 
     config USB_DEVICE_PRODUCT
