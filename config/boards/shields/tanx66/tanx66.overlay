@@ -6,20 +6,6 @@
         zmk,matrix_transform = &default_transform;
     };
 
-    &pro_micro_spi {
-        status = "okay";
-        cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
-        shifter: shifter_595@0 {
-            compatible = "zmk,gpio-595";
-            status = "okay";
-            gpio-controller;
-            spi-max-frequency = <4000000>;
-            reg = <0>;
-            #gpio-cells = <2>;
-            ngpios = <16>;
-        };
-    };
-
     default_kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "default_kscan";
