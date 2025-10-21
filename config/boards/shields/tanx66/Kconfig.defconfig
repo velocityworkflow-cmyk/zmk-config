@@ -1,0 +1,34 @@
+if SHIELD_TANX66
+
+    config ZMK KEYBOARD_NAME
+      default "tanx65"    
+
+    config USB_DEVICE_PRODUCT
+      default tanx65
+
+    config BT_DEVICE_NAME
+      default tanx65
+
+    config USB_DEVICE_VID
+      default 0x3750
+
+    config USB_DEVICE_PID
+      default 0x3750
+
+    config USB_DEVICE_MANUFACTURER
+      default "ZMK Project"
+
+    config SPI
+      default y
+
+    config I2C
+      default y
+
+    config ZMK_BLE
+	    default y
+
+    config ZMK_USB
+	    default y 
+
+ endif
+

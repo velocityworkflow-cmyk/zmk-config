@@ -1,0 +1,2 @@
+config SHIELD_TANX66
+def_bool $(shield_list_contains, tanx66)
