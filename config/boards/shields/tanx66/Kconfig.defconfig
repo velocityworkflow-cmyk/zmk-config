@@ -17,10 +17,7 @@ if SHIELD_TANX66
 
     config USB_DEVICE_MANUFACTURER
       default "ZMK Project"
-
-    config SPI
-      default y
-
+      
     config I2C
       default y
 
