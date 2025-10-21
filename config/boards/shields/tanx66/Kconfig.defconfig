@@ -12,6 +12,9 @@ if SHIELD_TANX66
     config I2C
       default y
 
+    config SSD1306
+      default y
+
     config SPI
       default y
 
